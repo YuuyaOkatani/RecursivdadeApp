@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import { View, Text, StyleSheet, TextInput } from 'react-native'
 
 
-export default function PageTwo() {
+export default function PageTwo({navigation}) {
 
     const [x, setX] = useState();
     const [a, setA] = useState();
@@ -63,6 +63,9 @@ export default function PageTwo() {
             <TextInput placeholder='Resultado' value={x} style={styles.input} editable={false} focusable={false} />
             <TouchableOpacity style={styles.button} onPress={calcular}>
                 <Text style={styles.text}>Calcular</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
+                <Text style={styles.text}>Voltar</Text>
             </TouchableOpacity>
         </View>
     )
