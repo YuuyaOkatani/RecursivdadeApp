@@ -1,12 +1,21 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import PageOne from './pages/pageOne';
+import PageTwo from './pages/pageTwo';
 
 export default function App() {
+
+  const Stack = createStackNavigator(); 
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="PageOne">
+        <Stack.Screen name= "PageOne" component={PageOne} />
+        <Stack.Screen name= "PageTwo" component={PageTwo} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
